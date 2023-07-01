@@ -1,0 +1,39 @@
+.home_page{
+    background-color: $color_primary_light;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    *{
+        font-family: cursive;
+    }
+
+    .couple_name{
+        color: $color_primary;
+        font-size: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span{
+            color: red;
+            font-size: 80px;
+        }
+    }
+    
+    .days{
+        text-align: center;
+        h2{
+            font-size: 150px;
+        }
+        h3{
+            color: $color_secondary;
+            font-size: 50px;
+        }
+    }
+
+    button{
+        margin-top: 50px;
+    }
+}

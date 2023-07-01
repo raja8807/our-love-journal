@@ -1,0 +1,13 @@
+.custom_button{
+    padding: 10px 20px;
+   
+    // background-color: $color_secondary;
+    background-color: $color_primary;
+    border: none;
+    border-radius: 20px;
+    color: $color_primary_light;
+
+    &:hover{
+        transform: scale(1.1);
+    }
+}
