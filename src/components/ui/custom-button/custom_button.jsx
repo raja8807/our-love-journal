@@ -1,12 +1,12 @@
 import styles from './custom_button.module.scss'
 
 const CustomButton = (props) => {
-  const { children, clickHahndler = () => {} } = props;
+  const { children, clickHandler = () => {} } = props;
 
   return (
     <button
       onClick={() => {
-        clickHahndler();
+        clickHandler();
       }}
       className={styles.custom_button}
     >

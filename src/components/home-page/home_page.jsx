@@ -3,16 +3,10 @@ import styles from "./home_page.module.scss";
 import { useEffect } from "react";
 import { useRef } from "react";
 import CustomButton from "../ui/custom-button/custom_button";
+import Link from "next/link";
 
 const HomeScreen = () => {
   const [color, setColor] = useState("black");
-  //   const [remainingDays,setRemainingDays] = useState(0)
-
-  const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-  const firstDate = new Date();
-  const secondDate = new Date(2025, 5, 2);
-
-  // const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
 
   function days_between(date1, date2) {
     // The number of milliseconds in one day
@@ -57,7 +51,9 @@ const HomeScreen = () => {
         <h3>Days More</h3>
       </div>
 
-      <CustomButton>View Our Love Journey</CustomButton>
+      <CustomButton>
+        <Link href="/journals">View Our Love Journey</Link>
+      </CustomButton>
     </div>
   );
 };
