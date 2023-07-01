@@ -51,9 +51,16 @@ const HomeScreen = () => {
         <h3>Days More</h3>
       </div>
 
-      <CustomButton>
-        <Link href="/journals">View Our Love Journey</Link>
-      </CustomButton>
+      <div>
+        <CustomButton>
+          <Link href="/fights">View Fights</Link>
+        </CustomButton>
+        &nbsp;
+        &nbsp;
+        <CustomButton>
+          <Link href="/meets">View Meets</Link>
+        </CustomButton>
+      </div>
     </div>
   );
 };
