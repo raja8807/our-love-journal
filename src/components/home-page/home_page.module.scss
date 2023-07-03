@@ -33,8 +33,18 @@
     }
   }
 
-  button {
-    margin-top: 20px;
+  .buttons {
+    .top {
+      display: flex;
+      gap: 10px;
+    }
+    .bottom {
+      margin-top: 10px;
+      width: 100%;
+      button {
+        width: 100%;
+      }
+    }
     a {
       color: white !important;
     }

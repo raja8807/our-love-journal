@@ -19,7 +19,6 @@ const HomeScreen = () => {
     return Math.round(differenceMs / ONE_DAY);
   }
 
-  // const remainingDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));;
   const remainingDays = days_between(new Date(), new Date(2025, 1, 5));
 
   const getColor = () => {
@@ -51,15 +50,21 @@ const HomeScreen = () => {
         <h3>Days More</h3>
       </div>
 
-      <div>
-        <CustomButton>
-          <Link href="/fights">View Fights</Link>
-        </CustomButton>
-        &nbsp;
-        &nbsp;
-        <CustomButton>
-          <Link href="/meets">View Meets</Link>
-        </CustomButton>
+      <div className={styles.buttons}>
+        <div className={styles.top}>
+          <CustomButton>
+            <Link href="/fights">View Fights</Link>
+          </CustomButton>
+
+          <CustomButton>
+            <Link href="/meets">View Meets</Link>
+          </CustomButton>
+        </div>
+        <div className={styles.bottom}>
+          <CustomButton>
+            <Link href="/stories">View Our Stories</Link>
+          </CustomButton>
+        </div>
       </div>
     </div>
   );

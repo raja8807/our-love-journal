@@ -1,7 +1,7 @@
-import FightsPage from "@/components/fights-page/fights";
+import JournalsList from "@/components/journals-list/journals-list";
 
 const Fights = () => {
-  return <FightsPage />;
+  return <JournalsList category="Fight" />;
 };
 
 export default Fights;

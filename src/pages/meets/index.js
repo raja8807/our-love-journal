@@ -1,7 +1,8 @@
-import MeetsPage from "@/components/meets-page/meets";
+import JournalsList from "@/components/journals-list/journals-list";
+
 
 const Meets = () => {
-  return <MeetsPage/>
+  return <JournalsList category="Meet" />;
 };
 
 export default Meets;

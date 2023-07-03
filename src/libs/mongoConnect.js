@@ -5,6 +5,7 @@ export const connectMongoDB = async () => {
     return mongoose.connection.asPromise();
   }
 
-  // return await mongoose.connect(process.env.MONGO_URI);
-  return await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI);
+  return await mongoose.connect(
+    "mongodb+srv://yora8807:JqlZswRpM4206CMU@yoradb.9yulg0j.mongodb.net/our-love-journal?retryWrites=true&w=majority"
+  );
 };
