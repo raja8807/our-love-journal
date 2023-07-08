@@ -3,6 +3,7 @@ import CustomButton from "../ui/custom-button/custom_button";
 import styles from "./journal.module.scss";
 import { Image } from "react-bootstrap";
 import Link from "next/link";
+import { useState } from "react";
 
 const Journal = (props) => {
   const { journal, setShowJournal, setjournalData } = props;
@@ -22,7 +23,33 @@ const Journal = (props) => {
     }
   };
 
-  console.log(journal);
+  const ImagePreview = (props) => {
+    const { imageSrc } = props;
+    const [showFullScreen, setFullScreen] = useState(false);
+
+    return !showFullScreen ? (
+      <Image
+        alt="xx"
+        src={imageSrc}
+        width={"40%"}
+        style={{ margin: "10px" }}
+        onClick={() => {
+          setFullScreen(true);
+        }}
+      />
+    ) : (
+      <div className={styles.image_fullScreen}>
+        <Image alt="xx" src={imageSrc} width={"100%"} />
+        <CustomButton
+          clickHandler={() => {
+            setFullScreen(false);
+          }}
+        >
+          Back
+        </CustomButton>
+      </div>
+    );
+  };
 
   return (
     <div className={styles.journal}>
@@ -37,14 +64,15 @@ const Journal = (props) => {
         {journal.images?.length > 0 && <p>Images</p>}
         {journal.images?.map((imageSrc, _idx) => {
           return (
-            <Link key={_idx} href={imageSrc}>
-              <Image
-                alt="xx"
-                src={imageSrc}
-                width={"45%"}
-                style={{ margin: "10px" }}
-              />
-            </Link>
+            <ImagePreview key={_idx} imageSrc={imageSrc} />
+            // <Link key={_idx} href={imageSrc}>
+            //   <Image
+            //     alt="xx"
+            //     src={imageSrc}
+            //     width={"40%"}
+            //     style={{ margin: "10px" }}
+            //   />
+            // </Link>
           );
         })}
       </div>
