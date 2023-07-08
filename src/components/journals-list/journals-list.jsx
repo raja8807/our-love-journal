@@ -11,7 +11,7 @@ import Journal from "../journal/journal";
 // import { Trash, PencilSquare } from "react-bootstrap-icons";
 
 const JournalRow = (props) => {
-  const { journal, idx,setjournalData } = props;
+  const { journal, idx, setjournalData } = props;
   const date = new Date(journal?.date);
   const [showJournal, setShowJournal] = useState(false);
 
@@ -35,7 +35,11 @@ const JournalRow = (props) => {
         </td>
       </tr>
       {showJournal && (
-        <Journal journal={journal} setShowJournal={setShowJournal} setjournalData={setjournalData} />
+        <Journal
+          journal={journal}
+          setShowJournal={setShowJournal}
+          setjournalData={setjournalData}
+        />
       )}
     </>
   );
@@ -60,8 +64,6 @@ const JournalsList = (props) => {
         setIsLoading(false);
       });
   }, [category, showCreate]);
-
-  console.log(journalData);
 
   return (
     <div className={styles.journals_list}>

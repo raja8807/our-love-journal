@@ -18,6 +18,7 @@ const journalSchema = new Schema(
       type: String,
       required: true,
     },
+    // images: [String],
   },
   {
     timestamps: true,

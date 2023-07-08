@@ -1,6 +1,8 @@
 import axios from "axios";
 import CustomButton from "../ui/custom-button/custom_button";
 import styles from "./journal.module.scss";
+import { Image } from "react-bootstrap";
+import Link from "next/link";
 
 const Journal = (props) => {
   const { journal, setShowJournal, setjournalData } = props;
@@ -20,6 +22,8 @@ const Journal = (props) => {
     }
   };
 
+  console.log(journal);
+
   return (
     <div className={styles.journal}>
       <div>
@@ -29,6 +33,20 @@ const Journal = (props) => {
         <br />
         <p>Description :</p>
         <p>{journal?.description}</p>
+        <br />
+        {journal.images.length > 0 && <p>Images</p>}
+        {journal.images.map((imageSrc, _idx) => {
+          return (
+            <Link key={_idx} href={imageSrc}>
+              <Image
+                alt="xx"
+                src={imageSrc}
+                width={"45%"}
+                style={{ margin: "10px" }}
+              />
+            </Link>
+          );
+        })}
       </div>
       <div className={styles.btns}>
         <CustomButton
