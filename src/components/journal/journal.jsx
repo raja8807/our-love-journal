@@ -1,9 +1,44 @@
 import axios from "axios";
 import CustomButton from "../ui/custom-button/custom_button";
 import styles from "./journal.module.scss";
-import { Image } from "react-bootstrap";
-import Link from "next/link";
+import { Button, Image, Modal } from "react-bootstrap";
 import { useState } from "react";
+import Link from "next/link";
+
+const ImagePreview = (props) => {
+  const { imageSrc, fileName } = props;
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Body style={{ padding: "0" }}>
+          <Image alt="xx" src={imageSrc} width={"100%"} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Link href={imageSrc} download={fileName} target="_blank">
+            Download
+          </Link>
+          &nbsp; &nbsp;
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Image
+        alt="xx"
+        src={imageSrc}
+        width={"40%"}
+        style={{ margin: "10px" }}
+        onClick={handleShow}
+      />
+    </>
+  );
+};
 
 const Journal = (props) => {
   const { journal, setShowJournal, setjournalData } = props;
@@ -23,34 +58,6 @@ const Journal = (props) => {
     }
   };
 
-  const ImagePreview = (props) => {
-    const { imageSrc } = props;
-    const [showFullScreen, setFullScreen] = useState(false);
-
-    return !showFullScreen ? (
-      <Image
-        alt="xx"
-        src={imageSrc}
-        width={"40%"}
-        style={{ margin: "10px" }}
-        onClick={() => {
-          setFullScreen(true);
-        }}
-      />
-    ) : (
-      <div className={styles.image_fullScreen}>
-        <Image alt="xx" src={imageSrc} width={"100%"} />
-        <CustomButton
-          clickHandler={() => {
-            setFullScreen(false);
-          }}
-        >
-          Back
-        </CustomButton>
-      </div>
-    );
-  };
-
   return (
     <div className={styles.journal}>
       <div>
@@ -64,7 +71,11 @@ const Journal = (props) => {
         {journal.images?.length > 0 && <p>Images</p>}
         {journal.images?.map((imageSrc, _idx) => {
           return (
-            <ImagePreview key={_idx} imageSrc={imageSrc} />
+            <ImagePreview
+              key={_idx}
+              imageSrc={imageSrc}
+              fileName={`${journal.title}_${_idx}`}
+            />
             // <Link key={_idx} href={imageSrc}>
             //   <Image
             //     alt="xx"
