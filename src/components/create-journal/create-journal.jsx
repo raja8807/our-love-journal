@@ -6,13 +6,14 @@ import { Col, Image, Row } from "react-bootstrap";
 
 const IamgesUploadWidget = ({ category, onSuccess, title }) => {
   useEffect(() => {
+    const folderName = title.split(" ").join("-");
     const openWideget = () => {
       window.cloudinary?.openUploadWidget(
         {
           cloudName: "dykxp8srf",
           uploadPreset: "derwkvly",
           sources: ["local,url"],
-          folder: `${category}/${title}`,
+          folder: `${category}/${folderName}`,
         },
         onSuccess
       );
