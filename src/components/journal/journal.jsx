@@ -34,8 +34,8 @@ const Journal = (props) => {
         <p>Description :</p>
         <p>{journal?.description}</p>
         <br />
-        {journal.images.length > 0 && <p>Images</p>}
-        {journal.images.map((imageSrc, _idx) => {
+        {journal.images?.length > 0 && <p>Images</p>}
+        {journal.images?.map((imageSrc, _idx) => {
           return (
             <Link key={_idx} href={imageSrc}>
               <Image
