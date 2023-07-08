@@ -36,6 +36,7 @@ const CreateJournal = (props) => {
   });
 
   const createPost = async () => {
+    // console.log(newJournal);
     if (newJournal.date && newJournal.title && newJournal.description) {
       axios
         .post("/api/journalData", newJournal)
