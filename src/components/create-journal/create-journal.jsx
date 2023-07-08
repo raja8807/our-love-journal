@@ -68,6 +68,7 @@ const CreateJournal = (props) => {
             value={tempTitle.title}
             onChange={(e) => {
               const { target } = e;
+              alert(target.value);
               setTempTitle({ ...tempTitle, title: target.value });
             }}
             disabled={tempTitle.fixed}
